@@ -11,6 +11,11 @@ namespace UnityEngine.UI.ProceduralImage {
 	[ExecuteInEditMode]
 	[AddComponentMenu("UI/Procedural Image")]
 	public class ProceduralImage : Image {
+        public Sprite procedualSprite
+        {
+            get { return m_sprite; }
+            set { m_sprite = value;Init(); }
+        }
         public Sprite m_sprite;
 		[SerializeField]private float borderWidth;
 		private ProceduralImageModifier modifier;
@@ -81,7 +86,7 @@ namespace UnityEngine.UI.ProceduralImage {
 		/// <summary>
 		/// Initializes this instance.
 		/// </summary>
-		void Init (){
+		public void Init (){
             if (m_sprite != null)
                 this.sprite = m_sprite;
             else

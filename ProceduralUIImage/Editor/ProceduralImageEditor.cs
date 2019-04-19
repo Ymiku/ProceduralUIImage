@@ -50,7 +50,12 @@ namespace UnityEditor.UI
 			ModifierGUI ();
 			EditorGUILayout.PropertyField (m_borderWidth);
 			EditorGUILayout.PropertyField (m_falloffDist);
-			serializedObject.ApplyModifiedProperties ();
+
+            if (serializedObject.ApplyModifiedProperties())
+            {
+                if (Selection.activeGameObject.GetComponent<ProceduralImage>() != null)
+                    Selection.activeGameObject.GetComponent<ProceduralImage>().Init();
+            }
 		}
 
 		protected void ModifierGUI(){
