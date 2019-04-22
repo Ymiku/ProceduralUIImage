@@ -15,7 +15,7 @@ namespace UnityEngine.UI.ProceduralImage
 			if (baseMaterial == null) {
 				throw new System.ArgumentNullException ("baseMaterial");
 			}
-			if (baseMaterial.shader.name != "UI/Procedural UI Image") {
+			if (baseMaterial.shader.name != "UI/Procedural UI Image"&&baseMaterial.shader.name != "UI/Procedural UI Image Clip") {
 				Debug.LogWarning("Parameter 'baseMaterial' does not use shader 'UI/Procedural UI Image'. Method returns baseMaterial.");
 				return baseMaterial;
 			}

@@ -12,7 +12,8 @@ namespace UnityEditor.UI
         SerializedProperty m_spritePro;
         SerializedProperty m_borderWidth;
 		SerializedProperty m_falloffDist;
-		int selectedId;
+        SerializedProperty m_needClipping;
+        int selectedId;
 
 		protected override void OnEnable () {
 			base.OnEnable ();
@@ -20,8 +21,8 @@ namespace UnityEditor.UI
             m_spritePro = serializedObject.FindProperty("m_sprite");
             m_borderWidth = serializedObject.FindProperty("borderWidth");
 			m_falloffDist = serializedObject.FindProperty("falloffDistance");
-
-			if((target as ProceduralImage).GetComponent<ProceduralImageModifier> ()!=null){
+            m_needClipping = serializedObject.FindProperty("needClipping");
+            if ((target as ProceduralImage).GetComponent<ProceduralImageModifier> ()!=null){
 				selectedId = attrList.IndexOf(((ModifierID[])(target as ProceduralImage).GetComponent<ProceduralImageModifier> ().GetType ().GetCustomAttributes(typeof(ModifierID),false))[0]);
 			}
 			selectedId = Mathf.Max (selectedId,0);
@@ -42,6 +43,7 @@ namespace UnityEditor.UI
 
 		public override void OnInspectorGUI(){
 			serializedObject.Update();
+            EditorGUILayout.PropertyField(m_needClipping);
             EditorGUILayout.PropertyField(m_spritePro);
             EditorGUILayout.PropertyField (m_Color);
 			RaycastControlsGUI();
@@ -50,7 +52,7 @@ namespace UnityEditor.UI
 			ModifierGUI ();
 			EditorGUILayout.PropertyField (m_borderWidth);
 			EditorGUILayout.PropertyField (m_falloffDist);
-
+            
             if (serializedObject.ApplyModifiedProperties())
             {
                 if (Selection.activeGameObject.GetComponent<ProceduralImage>() != null)
