@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace UnityEngine.UI.ProceduralImage{
+namespace UnityEngine.UI{
 	/// <summary>
 	/// Helps with getting ModifierID Attributes etc.
 	/// </summary>

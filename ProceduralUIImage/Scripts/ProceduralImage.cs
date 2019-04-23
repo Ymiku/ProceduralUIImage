@@ -6,17 +6,17 @@ using UnityEngine.UI;
  * assetstore.joshh@gmail.com for feedback or questions
  */
 
-namespace UnityEngine.UI.ProceduralImage {
+namespace UnityEngine.UI {
 
     [ExecuteInEditMode]
     [AddComponentMenu("UI/Procedural Image")]
-	public class ProceduralImage : Image {
-        public Sprite procedualSprite
+	public class ProceduralImage : ImageProxy {
+        public Sprite sprite//procedualSprite
         {
             get { return m_sprite; }
             set { m_sprite = value;Init(); }
         }
-        public Sprite m_sprite;
+        Sprite m_sprite;
 		[SerializeField]private float borderWidth;
 		private ProceduralImageModifier modifier;
 		private Material materialInstance;
@@ -89,9 +89,9 @@ namespace UnityEngine.UI.ProceduralImage {
 		/// </summary>
 		public void Init (){
             if (m_sprite != null)
-                this.sprite = m_sprite;
+				base.sprite = m_sprite;
             else
-			    this.sprite = EmptySprite.Get();
+			    base.sprite = EmptySprite.Get();
 			if (materialInstance == null) {
 				materialInstance = new Material (Shader.Find("UI/Procedural UI Image"));
 			}
@@ -164,7 +164,7 @@ namespace UnityEngine.UI.ProceduralImage {
             {
 				uv *= 10000;
                 float a = r.x / r.y;
-                float b = sprite.bounds.size.x / sprite.bounds.size.y;
+                float b = base.sprite.bounds.size.x / base.sprite.bounds.size.y;
                 float c = 0.0f;
                 if (a < b)
                 {

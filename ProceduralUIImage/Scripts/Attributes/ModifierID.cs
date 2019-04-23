@@ -1,4 +1,4 @@
-﻿namespace UnityEngine.UI.ProceduralImage
+﻿namespace UnityEngine.UI
 {
 	[System.AttributeUsage(System.AttributeTargets.Class)]
 	public class ModifierID : System.Attribute{

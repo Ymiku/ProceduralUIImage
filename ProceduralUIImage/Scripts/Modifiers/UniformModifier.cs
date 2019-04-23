@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI.ProceduralImage;
+using UnityEngine.UI;
 
 [ModifierID("Uniform")]
 public class UniformModifier : ProceduralImageModifier {

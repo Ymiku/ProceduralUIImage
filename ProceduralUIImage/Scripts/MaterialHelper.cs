@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace UnityEngine.UI.ProceduralImage
+namespace UnityEngine.UI
 {
 	public class MaterialHelper {
 		/// <summary>

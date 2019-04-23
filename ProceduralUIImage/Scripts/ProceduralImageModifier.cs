@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UnityEngine.UI.ProceduralImage
+namespace UnityEngine.UI
 {
 	[DisallowMultipleComponent]
 	public abstract class ProceduralImageModifier : MonoBehaviour {

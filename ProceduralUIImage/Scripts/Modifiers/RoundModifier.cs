@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI.ProceduralImage;
+using UnityEngine.UI;
 
 [ModifierID("Round")]
 public class RoundModifier : ProceduralImageModifier {

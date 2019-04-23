@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor;
 using UnityEngine.UI;
-using UnityEngine.UI.ProceduralImage;
+using UnityEngine.UI;
 
 namespace UnityEditor.UI {
 	/// <summary>
